@@ -68,12 +68,18 @@ export default function AboutSection() {
         </FadeIn>
         <FadeIn delay={0.15}>
           <p className="text-base leading-7 text-gray-600 mb-6">
-            I&apos;m a multidisciplinary product designer who bridges industrial, visual, and UX
-            design to craft compelling narratives. Currently completing my MS in HCDE at the
-            University of Washington, my process is heavily driven by rapid prototyping. I design
-            elegant, customer focused products turning complex research into clean, minimalist
-            interfaces. I love building the logic and interactions that make digital experiences
-            feel truly intuitive.
+            My background is in industrial design, where I fell in love with sketching iterations
+            to find the perfect ergonomic curve and watching users interact with product prototypes
+            I created. I find it interesting how we used to call industrial designers &ldquo;product
+            designers&rdquo;, and I quickly realized that the core principles of building physical
+            and digital products are identical: it is all about understanding user needs and solving
+            problems.
+          </p>
+          <p className="text-base leading-7 text-gray-600 mb-6">
+            Currently completing my MS in HCDE at the University of Washington, my process
+            is heavily driven by rapid prototyping. I design elegant, customer focused products
+            turning complex research into clean, minimalist interfaces. I love building the logic
+            and interactions that make digital experiences feel truly intuitive.
           </p>
           <p className="text-base leading-7 text-gray-600 mb-6">
             I thrive on collaboration. I love partnering with researchers, engineers, and PMs,
@@ -111,12 +117,18 @@ export default function AboutSection() {
         {/* Bottom Right — bio */}
         <FadeIn delay={0.15} className="pl-4 pr-2 py-12 flex flex-col justify-center">
           <p className="text-base leading-8 text-gray-600 mb-6">
-            I&apos;m a multidisciplinary product designer who bridges industrial, visual, and UX
-            design to craft compelling narratives. Currently completing my MS in HCDE at the
-            University of Washington, my process is heavily driven by rapid prototyping. I design
-            elegant, customer focused products turning complex research into clean, minimalist
-            interfaces. I love building the logic and interactions that make digital experiences
-            feel truly intuitive.
+            My background is in industrial design, where I fell in love with sketching iterations
+            to find the perfect ergonomic curve and watching users interact with product prototypes
+            I created. I find it interesting how we used to call industrial designers &ldquo;product
+            designers&rdquo;, and I quickly realized that the core principles of building physical
+            and digital products are identical: it is all about understanding user needs and solving
+            problems.
+          </p>
+          <p className="text-base leading-7 text-gray-600 mb-6">
+            Currently completing my MS in HCDE at the University of Washington, my process
+            is heavily driven by rapid prototyping. I design elegant, customer focused products
+            turning complex research into clean, minimalist interfaces. I love building the logic
+            and interactions that make digital experiences feel truly intuitive.
           </p>
           <p className="text-base leading-8 text-gray-600 mb-6">
             I thrive on collaboration. I love partnering with researchers, engineers, and PMs,

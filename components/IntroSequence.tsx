@@ -13,9 +13,9 @@ export default function IntroSequence({ onComplete }: { onComplete: () => void }
 
   useEffect(() => {
     const t1 = setTimeout(() => setStep(2), 1300)
-    const t2 = setTimeout(() => setStep(3), 3000)
-    const t3 = setTimeout(() => setOverlayVisible(false), 6300)
-    const t4 = setTimeout(() => handleComplete(), 7100)
+    const t2 = setTimeout(() => setStep(3), 2600)
+    const t3 = setTimeout(() => setOverlayVisible(false), 4300)
+    const t4 = setTimeout(() => handleComplete(), 5100)
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -38,9 +38,9 @@ export default function IntroSequence({ onComplete }: { onComplete: () => void }
                 key="hello"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
+                exit={{ opacity: 0, y: -8, transition: { duration: 0.35, ease: 'easeOut' } }}
                 transition={easeOut}
-                className="text-5xl sm:text-7xl lg:text-8xl font-black text-center leading-tight tracking-tight"
+                className="text-5xl sm:text-7xl lg:text-8xl font-medium text-center leading-tight tracking-tight"
               >
                 <motion.span
                   animate={{ color: step === 2 ? '#d1d5db' : '#000000' }}
@@ -73,8 +73,8 @@ export default function IntroSequence({ onComplete }: { onComplete: () => void }
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                transition={easeOut}
-                className="text-5xl sm:text-7xl lg:text-8xl font-black text-black text-center leading-tight tracking-tight"
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="text-5xl sm:text-7xl lg:text-8xl font-medium text-black text-center leading-tight tracking-tight"
               >
                 Yes, exactly, &ldquo;Huh&rdquo; is my last name.
               </motion.p>

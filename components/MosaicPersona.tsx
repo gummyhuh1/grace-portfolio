@@ -25,10 +25,10 @@ const Bullets = ({ items }: { items: string[] }) => (
 
 export default function MosaicPersona() {
   return (
-    <div className="flex w-full">
+    <div className="flex flex-col md:flex-row w-full">
 
       {/* Profile column */}
-      <div className="w-[320px] shrink-0 pr-10">
+      <div className="w-full md:w-[320px] md:shrink-0 md:pr-10 mb-8 md:mb-0">
         <div className="w-[100px] h-[100px] rounded-full bg-neutral-700 mb-5 flex items-center justify-center text-neutral-500 text-[10px] tracking-widest uppercase overflow-hidden">
           Photo
         </div>
@@ -42,14 +42,17 @@ export default function MosaicPersona() {
         </div>
       </div>
 
-      {/* Vertical divider */}
-      <div className="w-px bg-neutral-700 shrink-0" />
+      {/* Vertical divider — desktop only */}
+      <div className="hidden md:block w-px bg-neutral-700 shrink-0" />
+
+      {/* Horizontal divider — mobile only */}
+      <div className="md:hidden border-t border-neutral-700 mb-8" />
 
       {/* Content area */}
-      <div className="flex-1 pl-10">
+      <div className="flex-1 md:pl-10">
 
         {/* Top row: SCENARIO | BEHAVIORS | ASSUMPTIONS */}
-        <div className="grid grid-cols-3 gap-10 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 pb-8 md:pb-10">
           <div>
             <SectionHeader>Scenario</SectionHeader>
             <p className="text-sm text-neutral-300 leading-relaxed">
@@ -79,10 +82,10 @@ export default function MosaicPersona() {
         </div>
 
         {/* Horizontal divider */}
-        <div className="border-t border-neutral-700 mb-10" />
+        <div className="border-t border-neutral-700 mb-8 md:mb-10" />
 
-        {/* Bottom row: FRUSTRATIONS | GOALS | (empty) */}
-        <div className="grid grid-cols-3 gap-10">
+        {/* Bottom row: FRUSTRATIONS | GOALS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           <div>
             <SectionHeader>Frustrations</SectionHeader>
             <Bullets items={[
@@ -96,7 +99,7 @@ export default function MosaicPersona() {
               'Show personality through digital and physical accessories',
             ]} />
           </div>
-          <div />
+          <div className="hidden md:block" />
         </div>
 
       </div>

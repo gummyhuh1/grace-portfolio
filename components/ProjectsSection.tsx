@@ -77,7 +77,7 @@ export default function ProjectsSection() {
         {/* Carousel */}
         <div className="relative">
           {/* Image track */}
-          <div className="w-full aspect-[16/9] rounded-[32px] overflow-hidden relative">
+          <div className="group w-full aspect-[16/9] rounded-[32px] overflow-hidden relative">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
                 key={current}
@@ -92,6 +92,10 @@ export default function ProjectsSection() {
                 Image
               </motion.div>
             </AnimatePresence>
+            {/* Coming Soon overlay */}
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <span className="text-white text-sm font-semibold tracking-[0.2em] uppercase">Coming Soon</span>
+            </div>
           </div>
 
           {/* Left arrow */}

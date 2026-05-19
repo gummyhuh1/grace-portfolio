@@ -45,6 +45,7 @@ const projects: Project[] = [
     aspectClass: 'aspect-[4/3]',
     bgColor: 'bg-zinc-100',
     image: '/airfryer-header.jpg',
+    comingSoon: true,
   },
 ]
 

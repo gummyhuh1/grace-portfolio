@@ -4,6 +4,9 @@ import FadeIn from '@/components/FadeIn'
 import MosaicTimeline from '@/components/MosaicTimeline'
 import MosaicPersona from '@/components/MosaicPersona'
 import MosaicUserJourney from '@/components/MosaicUserJourney'
+import ZoomableImage from '@/components/ZoomableImage'
+import ScrollToTop from '@/components/ScrollToTop'
+import MosaicSideNav from '@/components/MosaicSideNav'
 
 export const metadata = {
   title: 'Mosaic Companion App — Grace Huh',
@@ -20,11 +23,16 @@ const Divider = () => <div className="border-t border-neutral-700 my-20" />
 export default function MosaicPage() {
   return (
     <main className="pt-20 bg-neutral-900 min-h-screen">
+      <MosaicSideNav />
 
       {/* Full-width hero image */}
       <FadeIn>
-        <div className="w-full aspect-[21/9] bg-neutral-800 flex items-center justify-center text-neutral-600 text-sm tracking-widest uppercase">
-          Hero Image
+        <div className="w-full bg-neutral-900">
+          <img
+            src="/mosaic-hero.png"
+            alt="Mosaic Companion App"
+            className="w-full h-auto block max-h-[70vh] object-contain mx-auto"
+          />
         </div>
       </FadeIn>
 
@@ -66,18 +74,18 @@ export default function MosaicPage() {
         {/* Overview images */}
         <FadeIn>
           <div className="flex justify-center gap-[200px] mt-[178px] mb-32">
-            <div className="w-[350px] shrink-0 aspect-[1/2] bg-neutral-800 rounded-[24px] flex items-center justify-center">
-              <span className="text-neutral-600 text-sm tracking-widest uppercase">Image</span>
+            <div className="w-[350px] shrink-0">
+              <img src="/mosaic-portrait-1.png" alt="Mosaic app screen 1" className="w-full h-auto block" />
             </div>
-            <div className="w-[350px] shrink-0 aspect-[1/2] bg-neutral-800 rounded-[24px] flex items-center justify-center">
-              <span className="text-neutral-600 text-sm tracking-widest uppercase">Image</span>
+            <div className="w-[350px] shrink-0">
+              <img src="/mosaic-portrait-2.png" alt="Mosaic app screen 2" className="w-full h-auto block" />
             </div>
           </div>
         </FadeIn>
 
         {/* Product description */}
         <FadeIn>
-          <div className="mb-[200px]">
+          <div id="overview" className="mb-[200px]">
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Overview</h2>
             <p className="text-base text-neutral-300 leading-6">
               Mosaic is a companion app for a phone case with E-ink display that enables users to personalize their case. As a lead designer, I led the end-to-end product design to create a companion mobile app that allows users to effortlessly pair their device, edit photos, and sync their visual stories.
@@ -151,7 +159,7 @@ export default function MosaicPage() {
 
         {/* User Research Phase 1 */}
         <FadeIn>
-          <div className="mb-[200px]">
+          <div id="user-research" className="mb-[200px]">
             <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 01</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">User Research</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
@@ -167,12 +175,12 @@ export default function MosaicPage() {
                     'Users change phone cases every 4–6 months; interest in more frequent switching if affordable.',
                     '2 of 5 participants use photo editing apps beyond social media.',
                     'Desire for a pre-loaded stock image library.',
-                    'App installation viewed as overwhelming — need for intuitive onboarding.',
+                    'App installation viewed as overwhelming, requiring intuitive onboarding.',
                     'Users prioritize ease and seamless case-to-app pairing.',
                     'Preference for importing photos directly from social media and editing apps.',
                   ].map((item) => (
                     <li key={item} className="flex gap-3 text-sm text-neutral-300 leading-relaxed">
-                      <span className="text-neutral-600 mt-0.5">—</span>
+                      <span className="text-neutral-600 mt-0.5">·</span>
                       {item}
                     </li>
                   ))}
@@ -189,7 +197,7 @@ export default function MosaicPage() {
                     'Engaging image editing features',
                   ].map((item) => (
                     <li key={item} className="flex gap-3 text-sm text-neutral-300 leading-relaxed">
-                      <span className="text-neutral-600 mt-0.5">—</span>
+                      <span className="text-neutral-600 mt-0.5">·</span>
                       {item}
                     </li>
                   ))}
@@ -223,25 +231,52 @@ export default function MosaicPage() {
             <p className="text-base text-neutral-300 leading-6 mb-10">
               I mapped the user flow to architect the app's core structure, ensuring a frictionless journey from the initial device pairing to the final E-ink sync.
             </p>
-            <Placeholder aspect="aspect-[16/9]" label="User Flow" />
+            <div className="hidden md:block">
+              <ZoomableImage src="/mosaic-userflow-desktop.png" alt="Mosaic User Flow" />
+            </div>
+            <img src="/mosaic-userflow-mobile.png" alt="Mosaic User Flow" className="md:hidden w-full h-auto" />
           </div>
         </FadeIn>
 
         {/* Low Fidelity Wireframes */}
         <FadeIn>
-          <div className="mb-[200px]">
+          <div id="low-fidelity" className="mb-[200px]">
             <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 02</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Low Fidelity Wireframes</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
               Low-fidelity prototyping allowed me to validate the app's skeleton and navigational flow early in the process. By gathering feedback on the architecture, I was able to prioritize essential features and rapidly iterate on the text-editing experience to ensure it felt intuitive.
             </p>
-            <Placeholder aspect="aspect-[16/14]" label="Wireframes" />
+            <div className="space-y-10">
+              {/* Image editing features — full width */}
+              <div>
+                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-4">Image Editing Features</p>
+                <div className="w-full h-[400px] flex items-center justify-center">
+                  <img src="/mosaic-lf-editing-v2.png" alt="Image editing features wireframes" className="h-full w-auto object-contain" />
+                </div>
+              </div>
+
+              {/* Onboarding — full width */}
+              <div>
+                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-4">Pairing Options — Onboarding</p>
+                <div className="w-full h-[400px] flex items-center justify-center">
+                  <img src="/mosaic-lf-onboarding.png" alt="Onboarding pairing wireframes" className="h-full w-auto object-contain" />
+                </div>
+              </div>
+
+              {/* Send & Complete — full width */}
+              <div>
+                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-4">Pairing Options — Send &amp; Complete</p>
+                <div className="w-full h-[400px] flex items-center justify-center">
+                  <img src="/mosaic-lf-send.png" alt="Send and complete wireframes" className="h-full w-auto object-contain" />
+                </div>
+              </div>
+            </div>
           </div>
         </FadeIn>
 
         {/* Key Insight */}
         <FadeIn>
-          <div className="mb-[200px]">
+          <div id="key-insight" className="mb-[200px]">
             <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 05</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Key Insight</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
@@ -261,8 +296,33 @@ export default function MosaicPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-8">
-              <Placeholder aspect="aspect-[16/9]" label="E-ink Preview Feature" />
+            <div className="mt-8 flex justify-center gap-8 md:gap-16 items-start">
+              {/* Left — dither_1 with callout annotation */}
+              <div className="w-[280px] md:w-[340px] shrink-0">
+                <p className="text-center text-sm text-neutral-400 mb-2">Preview OFF</p>
+                <div className="relative">
+                  <img src="/mosaic-dither-1.png" alt="Mosaic preview — original" className="w-full h-auto" />
+                  {/* SVG overlay — overflow visible so callout extends outside image */}
+                  <svg
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ overflow: 'visible', width: '100%', height: '100%' }}
+                    viewBox="0 0 376 778"
+                    preserveAspectRatio="xMidYMid meet"
+                    fill="none"
+                  >
+                    <circle cx="186" cy="83" r="20" stroke="#50DD50" strokeWidth="2.5"/>
+                    <line x1="188" y1="103" x2="188" y2="165" stroke="#50DD50" strokeWidth="1.5"/>
+                    <line x1="188" y1="165" x2="-55" y2="165" stroke="#50DD50" strokeWidth="1.5"/>
+                    <text x="-145" y="158" fill="#50DD50" fontSize="18" fontFamily="sans-serif">preview</text>
+                    <text x="-145" y="180" fill="#50DD50" fontSize="18" fontFamily="sans-serif">function</text>
+                  </svg>
+                </div>
+              </div>
+              {/* Right — dither_2 */}
+              <div className="w-[280px] md:w-[340px] shrink-0">
+                <p className="text-center text-sm text-neutral-400 mb-2">Preview ON</p>
+                <img src="/mosaic-dither-2.png" alt="Mosaic preview — dithered" className="w-full h-auto" />
+              </div>
             </div>
           </div>
         </FadeIn>
@@ -272,20 +332,26 @@ export default function MosaicPage() {
 
         {/* Product Features */}
         <FadeIn>
-          <div className="mb-[200px]">
+          <div id="product-features" className="mb-[200px]">
             <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 04</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Product Features</h2>
 
-            <div className="space-y-20">
+            <div className="space-y-32">
               {[
                 {
                   label: 'Pairing',
+                  image: '/mosaic-pairing.png',
+                  image2: undefined,
+                  imageClass: 'w-[85%] mx-auto',
                   blocks: [
                     { title: 'Pairing', body: 'I designed an omnipresent pairing system. Users can seamlessly connect the case the moment they snap it on, navigate through settings, or initiate the handshake right before casting their first image. The technology adapts to their natural workflow, completely eliminating setup fatigue.' },
                   ],
                 },
                 {
                   label: 'Stock Photo Library',
+                  image: '/mosaic-stock-library.png',
+                  image2: '/mosaic-my-collection.png',
+                  imageClass: '',
                   blocks: [
                     { title: 'Stock Photo Library', body: 'A curated stock photo library allows users to easily browse and swap images within collections.' },
                     { title: 'My Collection', body: 'My Collection tab lets users see a library of previously created images or collages.' },
@@ -293,11 +359,14 @@ export default function MosaicPage() {
                 },
                 {
                   label: 'Features',
+                  image: '/mosaic-features.png',
+                  image2: undefined,
+                  imageClass: 'w-full',
                   blocks: [
                     { title: 'Features', body: 'Photo editing features and other features like filters and stickers were created for customization.' },
                   ],
                 },
-              ].map(({ label, blocks }, i) => (
+              ].map(({ label, image, image2, imageClass, blocks }, i) => (
                 <div key={label} className={`flex gap-12 items-center ${i % 2 !== 0 ? 'flex-row-reverse' : ''}`}>
                   <div className="w-[40%] shrink-0 space-y-8">
                     {blocks.map(({ title, body }) => (
@@ -308,7 +377,15 @@ export default function MosaicPage() {
                     ))}
                   </div>
                   <div className="w-[60%] shrink-0">
-                    <Placeholder aspect="aspect-[3/4]" label={label} />
+                    {image
+                      ? (
+                        <div className={image2 ? 'flex gap-4 items-start' : ''}>
+                          <img src={image} alt={label} className={`h-auto object-contain ${image2 ? 'w-1/2' : imageClass || 'w-full'}`} />
+                          {image2 && <img src={image2} alt={label + ' 2'} className="w-1/2 h-auto object-contain" />}
+                        </div>
+                      )
+                      : <Placeholder aspect="aspect-[3/4]" label={label} />
+                    }
                   </div>
                 </div>
               ))}
@@ -319,7 +396,7 @@ export default function MosaicPage() {
 
         {/* Outcome & Impact */}
         <FadeIn>
-          <div className="mb-[200px]">
+          <div id="impact" className="mb-[200px]">
             <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Outcome</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Impact</h2>
 
@@ -360,6 +437,7 @@ export default function MosaicPage() {
         </FadeIn>
 
       </Container>
+      <ScrollToTop />
       <Footer />
     </main>
   )

@@ -4,7 +4,7 @@ const stages = [
   {
     name: 'DISCOVER',
     touchpoints: [
-      'Sees Mosaic case in the store — a display featuring the case and a "try me" model',
+      'Sees Mosaic case in the store, a display featuring the case and a "try me" model',
       'Sees Mosaic ad online',
     ],
     emotion: 'Curious & excited 🙂',
