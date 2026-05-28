@@ -36,7 +36,12 @@ export default function MosaicSideNav() {
       {sections.map(({ id, label }) => (
         <button
           key={id}
-          onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => {
+            const el = document.getElementById(id)
+            if (!el) return
+            const top = el.getBoundingClientRect().top + window.scrollY - 80
+            window.scrollTo({ top, behavior: 'smooth' })
+          }}
           className={`text-left text-[14px] tracking-wide transition-all duration-200 ${
             active === id
               ? 'text-white font-medium'
