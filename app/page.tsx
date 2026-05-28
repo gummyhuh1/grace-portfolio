@@ -11,11 +11,17 @@ import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false)
+  const alreadySeen = typeof window !== 'undefined' && !!sessionStorage.getItem('introSeen')
+  const [introComplete, setIntroComplete] = useState(alreadySeen)
+
+  function handleIntroComplete() {
+    sessionStorage.setItem('introSeen', '1')
+    setIntroComplete(true)
+  }
 
   return (
     <>
-      <IntroSequence onComplete={() => setIntroComplete(true)} />
+      {!alreadySeen && <IntroSequence onComplete={handleIntroComplete} />}
 
       <motion.main
         initial={{ opacity: 0 }}

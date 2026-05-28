@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
+import ScrollToTop from '@/components/ScrollToTop'
 import Link from 'next/link'
 
 export const metadata = {
@@ -42,6 +43,7 @@ export default function NourishingPage() {
       </Container>
 
       <div className="mt-32">
+        <ScrollToTop dark={false} />
         <Footer />
       </div>
     </main>

@@ -101,45 +101,93 @@ export default function MosaicPage() {
 
               {/* Card 1 — Pairing */}
               <div className="bg-neutral-800 rounded-[24px] p-10">
-                <svg width="80" height="70" viewBox="0 0 100 88" fill="none" className="text-neutral-400 mb-6">
-                  {/* PHONE CASE (lower, landscape tilted) — depth strips drawn first */}
-                  <polygon points="86,57 86,61 75,80 75,76" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="#262626"/>
-                  <polygon points="75,76 75,80 38,59 38,55" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="#262626"/>
-                  <polygon points="49,36 86,57 75,76 38,55" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="#262626"/>
-                  {/* Case inner hollow indicator (dashed) */}
-                  <polygon points="55,42 80,56 73,68 48,54" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 2" strokeLinejoin="round" fill="none"/>
-
-                  {/* UPPER PHONE (landscape tilted, floating above case) */}
-                  <polygon points="62,29 62,33 51,52 51,48" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="#262626"/>
-                  <polygon points="51,48 51,52 14,31 14,27" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="#262626"/>
-                  <polygon points="25,8 62,29 51,48 14,27" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="#262626"/>
-                  {/* Phone screen detail */}
-                  <polygon points="30,13 58,29 48,42 20,26" stroke="currentColor" strokeWidth="0.75" strokeLinejoin="round" fill="none"/>
-                </svg>
+                <div
+                  aria-label="Pairing icon"
+                  role="img"
+                  className="w-28 h-28 mb-6"
+                  style={{
+                    backgroundColor: '#50DD50',
+                    WebkitMaskImage: 'url(/mosaic-pairing-icon.png)',
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: 'url(/mosaic-pairing-icon.png)',
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                    filter: 'drop-shadow(0 0 0.4px #50DD50) drop-shadow(0 0 0.4px #50DD50) drop-shadow(0 0 0.4px #50DD50)',
+                  }}
+                />
                 <h3 className="text-lg font-bold mb-3 text-white">Seamless Onboarding and Pairing</h3>
                 <p className="text-sm text-neutral-300 leading-7">A frictionless onboarding and pairing flow is critical. If setup feels complicated, users abandon before experiencing the value of Mosaic.</p>
               </div>
 
               {/* Card 2 — Design with Constraints */}
               <div className="bg-neutral-800 rounded-[24px] p-10">
-                <svg width="70" height="70" viewBox="0 0 80 80" fill="none" className="text-neutral-400 mb-6">
-                  {/* Outer artboard frame */}
-                  <rect x="8" y="8" width="64" height="64" rx="3" stroke="currentColor" strokeWidth="1.5"/>
-                  {/* Corner bracket — top left */}
-                  <polyline points="8,22 8,8 22,8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  {/* Corner bracket — top right */}
-                  <polyline points="58,8 72,8 72,22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  {/* Corner bracket — bottom left */}
-                  <polyline points="8,58 8,72 22,72" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  {/* Corner bracket — bottom right */}
-                  <polyline points="72,58 72,72 58,72" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  {/* Template grid lines inside */}
-                  <line x1="20" y1="36" x2="60" y2="36" stroke="currentColor" strokeWidth="1"/>
-                  <line x1="20" y1="46" x2="50" y2="46" stroke="currentColor" strokeWidth="1"/>
-                  {/* Pen/stylus cursor drawing */}
-                  <path d="M46 20L54 28L34 48L26 50L28 42Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                  <line x1="42" y1="24" x2="50" y2="32" stroke="currentColor" strokeWidth="1"/>
+                <div className="h-28 flex items-center mb-6">
+                <svg
+                  width="90"
+                  height="90"
+                  viewBox="0 0 110 110"
+                  fill="none"
+                  stroke="#50DD50"
+                  strokeWidth="1.5"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  aria-label="Chain link icon"
+                  role="img"
+                >
+                  <defs>
+                    {/* LEFT link mask — hidden where RIGHT link's ring covers it, BUT ONLY in the upper half (so left link wins lower crossing) */}
+                    <mask id="leftMask">
+                      <rect width="110" height="110" fill="white" />
+                      <g transform="rotate(-23 66 60)">
+                        <rect x="31" y="46" width="70" height="28" rx="14" fill="black" />
+                        <rect x="39" y="54" width="54" height="12" rx="6" fill="white" />
+                      </g>
+                      {/* Re-expose lower half */}
+                      <rect x="0" y="61" width="110" height="49" fill="white" />
+                    </mask>
+
+                    {/* RIGHT link mask — hidden where LEFT link's ring covers it, BUT ONLY in the lower half (so right link wins upper crossing) */}
+                    <mask id="rightMask">
+                      <rect width="110" height="110" fill="white" />
+                      <g transform="rotate(-23 40 62)">
+                        <rect x="5" y="48" width="70" height="28" rx="14" fill="black" />
+                        <rect x="13" y="56" width="54" height="12" rx="6" fill="white" />
+                      </g>
+                      {/* Re-expose upper half */}
+                      <rect x="0" y="0" width="110" height="61" fill="white" />
+                    </mask>
+                  </defs>
+
+                  {/* Left link */}
+                  <g mask="url(#leftMask)">
+                    <g transform="rotate(-23 40 62)">
+                      <rect x="5" y="48" width="70" height="28" rx="14" />
+                      <rect x="13" y="56" width="54" height="12" rx="6" />
+                    </g>
+                  </g>
+
+                  {/* Right link */}
+                  <g mask="url(#rightMask)">
+                    <g transform="rotate(-23 66 60)">
+                      <rect x="31" y="46" width="70" height="28" rx="14" />
+                      <rect x="39" y="54" width="54" height="12" rx="6" />
+                    </g>
+                  </g>
+
+                  {/* Top sparkles — tight cluster above center of chains */}
+                  <line x1="47" y1="22" x2="45" y2="12" />
+                  <line x1="55" y1="20" x2="55" y2="10" />
+                  <line x1="63" y1="22" x2="65" y2="12" />
+
+                  {/* Bottom sparkles — tight cluster below center of chains */}
+                  <line x1="47" y1="92" x2="45" y2="102" />
+                  <line x1="55" y1="94" x2="55" y2="104" />
+                  <line x1="63" y1="92" x2="65" y2="102" />
                 </svg>
+                </div>
                 <h3 className="text-lg font-bold mb-3 text-white">Design with Constraints</h3>
                 <p className="text-sm text-neutral-300 leading-7">Designed within the technical constraints of a pre-built developer template, balancing creative vision with engineering realities.</p>
               </div>
@@ -160,7 +208,6 @@ export default function MosaicPage() {
         {/* User Research Phase 1 */}
         <FadeIn>
           <div id="user-research" className="mb-[200px]">
-            <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 01</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">User Research</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
               Conducted five user interviews with co-workers using qualitative and quantitative
@@ -241,15 +288,14 @@ export default function MosaicPage() {
         {/* Low Fidelity Wireframes */}
         <FadeIn>
           <div id="low-fidelity" className="mb-[200px]">
-            <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 02</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Low Fidelity Wireframes</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
               Low-fidelity prototyping allowed me to validate the app's skeleton and navigational flow early in the process. By gathering feedback on the architecture, I was able to prioritize essential features and rapidly iterate on the text-editing experience to ensure it felt intuitive.
             </p>
-            <div className="space-y-10">
+            <div className="space-y-16">
               {/* Image editing features — full width */}
               <div>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-4">Image Editing Features</p>
+                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Image Editing Features</p>
                 <div className="w-full h-[400px] flex items-center justify-center">
                   <img src="/mosaic-lf-editing-v2.png" alt="Image editing features wireframes" className="h-full w-auto object-contain" />
                 </div>
@@ -257,7 +303,7 @@ export default function MosaicPage() {
 
               {/* Onboarding — full width */}
               <div>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-4">Pairing Options — Onboarding</p>
+                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Onboarding</p>
                 <div className="w-full h-[400px] flex items-center justify-center">
                   <img src="/mosaic-lf-onboarding.png" alt="Onboarding pairing wireframes" className="h-full w-auto object-contain" />
                 </div>
@@ -265,7 +311,7 @@ export default function MosaicPage() {
 
               {/* Send & Complete — full width */}
               <div>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-4">Pairing Options — Send &amp; Complete</p>
+                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Send &amp; Complete</p>
                 <div className="w-full h-[400px] flex items-center justify-center">
                   <img src="/mosaic-lf-send.png" alt="Send and complete wireframes" className="h-full w-auto object-contain" />
                 </div>
@@ -277,7 +323,6 @@ export default function MosaicPage() {
         {/* Key Insight */}
         <FadeIn>
           <div id="key-insight" className="mb-[200px]">
-            <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 05</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Key Insight</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
               During internal reviews, it became clear that the physical constraints of the E-ink display clashed with the high-fidelity reality of mobile screens. To prevent a disjointed user experience, the digital interface needed to accurately communicate the hardware's limitations.
@@ -330,10 +375,26 @@ export default function MosaicPage() {
 
 
 
+        {/* UI Development */}
+        <FadeIn>
+          <div id="ui-development" className="mb-[200px]">
+            <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">UI Development</h2>
+            <p className="text-base text-neutral-300 leading-6 mb-10">
+              With the low-fidelity structure validated, I moved into high-fidelity UI development — translating wireframes into a polished visual system built for the constraints of E-ink hardware. Every interface element was designed to feel native and intuitive: a dark-mode-first aesthetic that mirrors the E-ink display, a clear navigation hierarchy between Stock Library and My Collection, and a category filter system that lets users quickly narrow down content. The result is a UI that feels familiar from day one, lowering the barrier to personalization.
+            </p>
+            <div className="w-full bg-neutral-700 rounded-[24px] p-10">
+              <img
+                src="/mosaic-ui-development.png"
+                alt="Mosaic UI Development screens"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </FadeIn>
+
         {/* Product Features */}
         <FadeIn>
           <div id="product-features" className="mb-[200px]">
-            <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Phase 04</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Product Features</h2>
 
             <div className="space-y-32">

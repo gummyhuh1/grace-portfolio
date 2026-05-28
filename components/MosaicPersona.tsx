@@ -29,8 +29,8 @@ export default function MosaicPersona() {
 
       {/* Profile column */}
       <div className="w-full md:w-[320px] md:shrink-0 md:pr-10 mb-8 md:mb-0">
-        <div className="w-[100px] h-[100px] rounded-full bg-neutral-700 mb-5 flex items-center justify-center text-neutral-500 text-[10px] tracking-widest uppercase overflow-hidden">
-          Photo
+        <div className="w-[100px] h-[100px] rounded-full mb-5 overflow-hidden">
+          <img src="/mosaic-persona.jpg" alt="Emily Jones" className="w-full h-full object-cover object-top" />
         </div>
         <p className="text-white text-base mb-6">Emily Jones</p>
         <div className="space-y-3">

@@ -10,9 +10,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Grace Huh — Designer',
-  description:
-    'Multidisciplinary designer building minimalist visual experiences at scale.',
+  title: 'Grace Huh - Product Designer',
+  description: 'Product Designer | UX Designer Portfolio, based in Seattle, WA',
 }
 
 export default function RootLayout({

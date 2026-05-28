@@ -1,4 +1,5 @@
 import WorkSection from '@/components/WorkSection'
+import ProjectsSection from '@/components/ProjectsSection'
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
@@ -17,6 +18,7 @@ export default function WorkPage() {
           </FadeIn>
         </div>
         <WorkSection />
+        <ProjectsSection />
       </Container>
       <Footer />
     </main>
