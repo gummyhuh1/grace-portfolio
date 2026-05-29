@@ -9,7 +9,7 @@ import ScrollToTop from '@/components/ScrollToTop'
 import MosaicSideNav from '@/components/MosaicSideNav'
 
 export const metadata = {
-  title: 'Mosaic Companion App — Grace Huh',
+  title: 'Mosaic Companion App',
 }
 
 const Placeholder = ({ aspect = 'aspect-video', label = 'Image' }: { aspect?: string; label?: string }) => (

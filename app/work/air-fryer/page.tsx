@@ -8,7 +8,7 @@ import CookingIndicationCallout from '@/components/CookingIndicationCallout'
 import ChildproofCallout from '@/components/ChildproofCallout'
 
 export const metadata = {
-  title: 'Air Fryer UI — Grace Huh',
+  title: 'Air Fryer UI',
 }
 
 const Placeholder = ({ aspect = 'aspect-video', label = 'Image' }: { aspect?: string; label?: string }) => (
