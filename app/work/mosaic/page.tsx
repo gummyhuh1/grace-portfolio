@@ -45,7 +45,7 @@ export default function MosaicPage() {
 
         {/* Project metadata — right below hero */}
         <FadeIn>
-          <div className="grid grid-cols-4 gap-10 mb-[200px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-[200px]">
             {[
               { label: 'Role', value: ['Senior Graphic Designer', 'Lead Designer'] },
               { label: 'Collaborators', value: ['Associate Marketing Manager', 'Project Engineer', 'Contractor Developer'] },
@@ -65,7 +65,7 @@ export default function MosaicPage() {
         {/* Typographic statement */}
         <FadeIn>
           <p className="text-4xl md:text-5xl lg:text-6xl font-thin leading-[1.25] tracking-tight text-white mb-[200px]">
-            Mosaic is a <span className="font-semibold">phone case</span> that utilizes <span className="font-semibold">E-ink</span>{' '}
+            Mosaic is a <span className="font-semibold">phone case</span> that utilizes <span className="font-semibold whitespace-nowrap">E-ink</span>{' '}
             technology to display <span className="font-semibold">personalized</span>{' '}
             images from the companion app
           </p>
@@ -73,11 +73,11 @@ export default function MosaicPage() {
 
         {/* Overview images */}
         <FadeIn>
-          <div className="flex justify-center gap-[200px] mt-[178px] mb-32">
-            <div className="w-[350px] shrink-0">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-[200px] mt-[178px] mb-32">
+            <div className="w-full max-w-[350px]">
               <img src="/mosaic-portrait-1.png" alt="Mosaic app screen 1" className="w-full h-auto block" />
             </div>
-            <div className="w-[350px] shrink-0">
+            <div className="w-full max-w-[350px]">
               <img src="/mosaic-portrait-2.png" alt="Mosaic app screen 2" className="w-full h-auto block" />
             </div>
           </div>
@@ -296,24 +296,24 @@ export default function MosaicPage() {
               {/* Image editing features — full width */}
               <div>
                 <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Image Editing Features</p>
-                <div className="w-full h-[400px] flex items-center justify-center">
-                  <img src="/mosaic-lf-editing-v2.png" alt="Image editing features wireframes" className="h-full w-auto object-contain" />
+                <div className="w-full md:h-[400px] md:flex md:items-center md:justify-center">
+                  <img src="/mosaic-lf-editing-v2.png" alt="Image editing features wireframes" className="w-full h-auto md:h-full md:w-auto object-contain" />
                 </div>
               </div>
 
               {/* Onboarding — full width */}
               <div>
                 <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Onboarding</p>
-                <div className="w-full h-[400px] flex items-center justify-center">
-                  <img src="/mosaic-lf-onboarding.png" alt="Onboarding pairing wireframes" className="h-full w-auto object-contain" />
+                <div className="w-full md:h-[400px] md:flex md:items-center md:justify-center">
+                  <img src="/mosaic-lf-onboarding.png" alt="Onboarding pairing wireframes" className="w-full h-auto md:h-full md:w-auto object-contain" />
                 </div>
               </div>
 
               {/* Send & Complete — full width */}
               <div>
                 <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Send &amp; Complete</p>
-                <div className="w-full h-[400px] flex items-center justify-center">
-                  <img src="/mosaic-lf-send.png" alt="Send and complete wireframes" className="h-full w-auto object-contain" />
+                <div className="w-full md:h-[400px] md:flex md:items-center md:justify-center">
+                  <img src="/mosaic-lf-send.png" alt="Send and complete wireframes" className="w-full h-auto md:h-full md:w-auto object-contain" />
                 </div>
               </div>
             </div>
@@ -341,9 +341,9 @@ export default function MosaicPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-8 flex justify-center gap-8 md:gap-16 items-start">
+            <div className="mt-8 flex flex-col md:flex-row justify-center gap-8 md:gap-16 items-center md:items-start">
               {/* Left — dither_1 with callout annotation */}
-              <div className="w-[280px] md:w-[340px] shrink-0">
+              <div className="w-full max-w-[340px]">
                 <p className="text-center text-sm text-neutral-400 mb-2">Preview OFF</p>
                 <div className="relative">
                   <img src="/mosaic-dither-1.png" alt="Mosaic preview — original" className="w-full h-auto" />
@@ -364,7 +364,7 @@ export default function MosaicPage() {
                 </div>
               </div>
               {/* Right — dither_2 */}
-              <div className="w-[280px] md:w-[340px] shrink-0">
+              <div className="w-full max-w-[340px]">
                 <p className="text-center text-sm text-neutral-400 mb-2">Preview ON</p>
                 <img src="/mosaic-dither-2.png" alt="Mosaic preview — dithered" className="w-full h-auto" />
               </div>
@@ -428,8 +428,8 @@ export default function MosaicPage() {
                   ],
                 },
               ].map(({ label, image, image2, imageClass, blocks }, i) => (
-                <div key={label} className={`flex gap-12 items-center ${i % 2 !== 0 ? 'flex-row-reverse' : ''}`}>
-                  <div className="w-[40%] shrink-0 space-y-8">
+                <div key={label} className={`flex flex-col-reverse md:flex-row gap-12 items-center ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className="w-full md:w-[40%] md:shrink-0 space-y-8">
                     {blocks.map(({ title, body }) => (
                       <div key={title}>
                         <h3 className="text-xl font-bold tracking-tight mb-4 text-white">{title}</h3>
@@ -437,7 +437,7 @@ export default function MosaicPage() {
                       </div>
                     ))}
                   </div>
-                  <div className="w-[60%] shrink-0">
+                  <div className="w-full md:w-[60%] md:shrink-0">
                     {image
                       ? (
                         <div className={image2 ? 'flex gap-4 items-start' : ''}>
