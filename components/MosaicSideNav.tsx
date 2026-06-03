@@ -32,7 +32,7 @@ export default function MosaicSideNav() {
   }, [])
 
   return (
-    <nav className="hidden xl:flex fixed left-8 top-1/2 -translate-y-1/2 z-30 flex-col gap-4">
+    <nav className="hidden min-[1700px]:flex fixed left-8 top-1/2 -translate-y-1/2 z-30 flex-col gap-4">
       {sections.map(({ id, label }) => (
         <button
           key={id}
