@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
 import FadeIn from './FadeIn'
 
 interface Project {
@@ -9,14 +11,20 @@ interface Project {
   description: string
   category: string
   bgColor: string
+  image?: string
+  href?: string
+  comingSoon?: boolean
 }
 
 const projects: Project[] = [
   {
-    title: 'Project Title One',
-    description: 'A short description of this personal or school project.',
-    category: 'UX Design',
-    bgColor: 'bg-stone-100',
+    title: 'Usability Study for Actual AI',
+    description: 'Usability research and testing for Actual AI\'s onboarding & dashboard experience.',
+    category: 'Usability Testing',
+    bgColor: 'bg-stone-900',
+    image: '/actual-ai-header.jpg',
+    href: '/work/actual-ai',
+    comingSoon: true,
   },
   {
     title: 'Project Title Two',
@@ -59,7 +67,7 @@ export default function ProjectsSection() {
       {/* Section header */}
       <FadeIn>
         <div className="mb-12">
-          <h2 className="text-xl font-bold tracking-tight text-gray-800 flex items-center gap-2">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-800 flex items-center gap-2">
             Projects
             <motion.span
               animate={{ y: [0, 5, 0] }}
@@ -77,7 +85,9 @@ export default function ProjectsSection() {
         {/* Carousel */}
         <div className="relative">
           {/* Image track */}
-          <div className="group w-full aspect-[16/9] rounded-[32px] overflow-hidden relative">
+          <div className={`group w-full aspect-[12/7] rounded-[48px] overflow-hidden relative ${project.href && !project.comingSoon ? 'cursor-pointer' : ''}`}
+            onClick={() => { if (project.href && !project.comingSoon) window.location.href = project.href }}
+          >
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
               <motion.div
                 key={current}
@@ -89,13 +99,18 @@ export default function ProjectsSection() {
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className={`absolute inset-0 ${project.bgColor} flex items-center justify-center text-stone-300 text-sm tracking-widest uppercase`}
               >
-                Image
+                {project.image
+                  ? <Image src={project.image} alt={project.title} fill className="object-cover" sizes="100vw" />
+                  : 'Image'
+                }
               </motion.div>
             </AnimatePresence>
             {/* Coming Soon overlay */}
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-              <span className="text-white text-sm font-semibold tracking-[0.2em] uppercase">Coming Soon</span>
-            </div>
+            {project.comingSoon && (
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <span className="text-white text-sm font-semibold tracking-[0.2em] uppercase">Coming Soon</span>
+              </div>
+            )}
           </div>
 
           {/* Left arrow */}

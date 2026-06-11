@@ -25,13 +25,13 @@ export default function MosaicPage() {
     <main className="pt-20 bg-neutral-900 min-h-screen">
       <MosaicSideNav />
 
-      {/* Full-width hero image */}
+      {/* Hero image — constrained to content width */}
       <FadeIn>
-        <div className="w-full bg-neutral-900">
+        <div className="max-w-[1440px] mx-auto px-8 md:px-20 lg:px-32 -mt-[60px]">
           <img
             src="/mosaic-hero.png"
             alt="Mosaic Companion App"
-            className="w-full h-auto block max-h-[70vh] object-contain mx-auto"
+            className="w-full h-auto block"
           />
         </div>
       </FadeIn>
@@ -40,7 +40,7 @@ export default function MosaicPage() {
 
         {/* Project title */}
         <FadeIn>
-          <h1 className="text-4xl font-bold tracking-tight text-white mt-14 mb-8">Mosaic Companion App</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-white mt-4 mb-8">Mosaic Companion App</h1>
         </FadeIn>
 
         {/* Project metadata — right below hero */}
@@ -53,7 +53,7 @@ export default function MosaicPage() {
               { label: 'Duration', value: ['8 Weeks'] },
             ].map(({ label, value }) => (
               <div key={label}>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-2">{label}</p>
+                <p className="text-[13px] text-neutral-400 uppercase tracking-widest mb-2">{label}</p>
                 {value.map((line) => (
                   <p key={line} className="text-sm text-neutral-100 leading-relaxed">{line}</p>
                 ))}
@@ -75,10 +75,12 @@ export default function MosaicPage() {
         <FadeIn>
           <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-[200px] mt-[178px] mb-32">
             <div className="w-full max-w-[350px]">
-              <img src="/mosaic-portrait-1.png" alt="Mosaic app screen 1" className="w-full h-auto block" />
+              <img src="/mosaic-portrait-1.png" alt="Mosaic E-ink phone case back view" className="w-full h-auto block" />
+              <p className="text-sm text-neutral-400 text-center mt-3">Mosaic E-ink phone case back view</p>
             </div>
             <div className="w-full max-w-[350px]">
-              <img src="/mosaic-portrait-2.png" alt="Mosaic app screen 2" className="w-full h-auto block" />
+              <img src="/mosaic-portrait-2.png" alt="Front view with the companion app" className="w-full h-auto block" />
+              <p className="text-sm text-neutral-400 text-center mt-3">Front view with the companion app</p>
             </div>
           </div>
         </FadeIn>
@@ -119,7 +121,7 @@ export default function MosaicPage() {
                   }}
                 />
                 <h3 className="text-lg font-bold mb-3 text-white">Seamless Onboarding and Pairing</h3>
-                <p className="text-sm text-neutral-300 leading-7">A frictionless onboarding and pairing flow is critical. If setup feels complicated, users abandon before experiencing the value of Mosaic.</p>
+                <p className="text-sm text-neutral-300 leading-7">We set our target audience as middle-aged Target & Walmart shoppers. From the Walmart shopper's point of view, I thought providing a frictionless onboarding and pairing flow was critical. If setup feels complicated, users abandon before experiencing Mosaic's value.</p>
               </div>
 
               {/* Card 2 — Design with Constraints */}
@@ -210,13 +212,12 @@ export default function MosaicPage() {
           <div id="user-research" className="mb-[200px]">
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">User Research</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
-              Conducted five user interviews with co-workers using qualitative and quantitative
-              questions to understand behaviors, expectations, and pain points.
+              Conducted five interviews with co-workers using qualitative and quantitative questions. It would've been ideal to interview Target and Walmart shoppers, but with limited time constraints, I decided to interview internally, and I made sure they were not part of the development team. I wanted to understand shopping behaviors, users' expectations when they first encounter an E-ink phone case, and the possible pain points they might encounter.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-10">
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 mb-5">Key Findings</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest mb-5" style={{ color: '#50DD50' }}>Key Findings</h3>
                 <ul className="space-y-4">
                   {[
                     'Users change phone cases every 4–6 months; interest in more frequent switching if affordable.',
@@ -226,7 +227,7 @@ export default function MosaicPage() {
                     'Users prioritize ease and seamless case-to-app pairing.',
                     'Preference for importing photos directly from social media and editing apps.',
                   ].map((item) => (
-                    <li key={item} className="flex gap-3 text-sm text-neutral-300 leading-relaxed">
+                    <li key={item} className="flex gap-3 text-[15px] text-neutral-300 leading-relaxed">
                       <span className="text-neutral-600 mt-0.5">·</span>
                       {item}
                     </li>
@@ -234,7 +235,7 @@ export default function MosaicPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 mb-5">Goals & Solutions</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest mb-5" style={{ color: '#50DD50' }}>Goals & Solutions</h3>
                 <ul className="space-y-4">
                   {[
                     'Custom design solution',
@@ -243,7 +244,7 @@ export default function MosaicPage() {
                     'Seamless onboarding process',
                     'Engaging image editing features',
                   ].map((item) => (
-                    <li key={item} className="flex gap-3 text-sm text-neutral-300 leading-relaxed">
+                    <li key={item} className="flex gap-3 text-[15px] text-neutral-300 leading-relaxed">
                       <span className="text-neutral-600 mt-0.5">·</span>
                       {item}
                     </li>
@@ -295,7 +296,7 @@ export default function MosaicPage() {
             <div className="space-y-16">
               {/* Image editing features — full width */}
               <div>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Image Editing Features</p>
+                <p className="text-[13px] text-neutral-500 uppercase tracking-widest mb-7 text-center">Image Editing Features</p>
                 <div className="w-full md:h-[400px] md:flex md:items-center md:justify-center">
                   <img src="/mosaic-lf-editing-v2.png" alt="Image editing features wireframes" className="w-full h-auto md:h-full md:w-auto object-contain" />
                 </div>
@@ -303,7 +304,7 @@ export default function MosaicPage() {
 
               {/* Onboarding — full width */}
               <div>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Onboarding</p>
+                <p className="text-[13px] text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Onboarding</p>
                 <div className="w-full md:h-[400px] md:flex md:items-center md:justify-center">
                   <img src="/mosaic-lf-onboarding.png" alt="Onboarding pairing wireframes" className="w-full h-auto md:h-full md:w-auto object-contain" />
                 </div>
@@ -311,7 +312,7 @@ export default function MosaicPage() {
 
               {/* Send & Complete — full width */}
               <div>
-                <p className="text-xs text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Send &amp; Complete</p>
+                <p className="text-[13px] text-neutral-500 uppercase tracking-widest mb-7 text-center">Pairing Options — Send &amp; Complete</p>
                 <div className="w-full md:h-[400px] md:flex md:items-center md:justify-center">
                   <img src="/mosaic-lf-send.png" alt="Send and complete wireframes" className="w-full h-auto md:h-full md:w-auto object-contain" />
                 </div>
@@ -329,13 +330,13 @@ export default function MosaicPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="bg-neutral-800 rounded-[24px] p-10">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 mb-4">Problem</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: '#50DD50' }}>Problem</h3>
                 <p className="text-sm text-neutral-300 leading-7">
                   The physical E-ink case lacks blue tones and cannot match the vibrancy of a modern phone screen. This creates a frustrating disparity between what the user edits in the app and what actually appears on the case.
                 </p>
               </div>
               <div className="bg-neutral-800 rounded-[24px] p-10">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-neutral-500 mb-4">Solution</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: '#50DD50' }}>Solution</h3>
                 <p className="text-sm text-neutral-300 leading-7">
                   I engineered a dedicated preview state that renders a precisely dithered, color-constrained version of the user's artwork. This bridges the gap between screen and case, setting accurate visual expectations before the image is synced.
                 </p>
@@ -380,9 +381,14 @@ export default function MosaicPage() {
           <div id="ui-development" className="mb-[200px]">
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">UI Development</h2>
             <p className="text-base text-neutral-300 leading-6 mb-10">
-              With the low-fidelity structure validated, I moved into high-fidelity UI development — translating wireframes into a polished visual system built for the constraints of E-ink hardware. Every interface element was designed to feel native and intuitive: a dark-mode-first aesthetic that mirrors the E-ink display, a clear navigation hierarchy between Stock Library and My Collection, and a category filter system that lets users quickly narrow down content. The result is a UI that feels familiar from day one, lowering the barrier to personalization.
+              With the low-fidelity structure validated, I moved on to high-fidelity UI development, translating wireframes into a polished visual system. I went through iterations of UI options to find the most intuitive interfaces for the home dashboard, the Stock Library, My Collection, and image editing feature pages. I've also created a new brand identity for Mosaic and a design system for it as well.
             </p>
             <div className="w-full bg-neutral-700 rounded-[24px] p-10">
+              <div className="grid grid-cols-4 mb-4">
+                {['Option 1', 'Selected', 'Option 3', 'Option 4'].map((label) => (
+                  <p key={label} className="text-[13px] text-neutral-400 text-center tracking-wide">{label}</p>
+                ))}
+              </div>
               <img
                 src="/mosaic-ui-development.png"
                 alt="Mosaic UI Development screens"
@@ -458,14 +464,13 @@ export default function MosaicPage() {
         {/* Outcome & Impact */}
         <FadeIn>
           <div id="impact" className="mb-[200px]">
-            <p className="text-xs text-neutral-500 uppercase tracking-widest mb-3">Outcome</p>
+            <p className="text-[13px] text-neutral-500 uppercase tracking-widest mb-3">Outcome</p>
             <h2 className="text-2xl font-bold tracking-tight mb-3 text-white">Impact</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {[
                 { stat: '2026', label: 'Launch Timeline' },
                 { stat: '2', label: 'Enterprise Retailers Pitched' },
-                { stat: '30,000+', label: 'Projected App Users' },
               ].map(({ stat, label }) => (
                 <div key={label} className="bg-neutral-800 rounded-[24px] p-10">
                   <p className="text-4xl font-black tracking-tight mb-2 text-white">{stat}</p>

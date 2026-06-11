@@ -8,7 +8,7 @@ const attributes = [
 ]
 
 const SectionHeader = ({ children }: { children: string }) => (
-  <p className="text-center text-[11px] font-semibold uppercase tracking-widest text-neutral-400 mb-5">
+  <p className="text-center text-[13px] font-semibold uppercase tracking-widest text-neutral-400 mb-5">
     {children}
   </p>
 )

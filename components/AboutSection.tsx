@@ -5,47 +5,47 @@ const timelineEvents = [
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_8c93d2436dcc4850aa9d848ca3ce2c57~mv2.png',
     caption: 'Born & raised in Korea',
-    color: '#FCA5A5', // rose
+    color: '#e8e0f5',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_ab40570e4cae42c680408ce2aebb977c~mv2.png',
     caption: 'Moved to Seattle in high school',
-    color: '#FDBA74', // orange
+    color: '#d9cdf0',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_e61cba91456040f9a24e4502c8163db0~mv2.png',
     caption: 'Moved to Chicago for college',
-    color: '#FCD34D', // amber
+    color: '#c4b3e8',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_b24bf9ca770f4eb0845627c561d06a4e~mv2.png',
     caption: 'Started working as an industrial designer',
-    color: '#BEF264', // lime
+    color: '#ae98dd',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_8684d1248bad4c49a5b0610b06208fb0~mv2.png',
     caption: 'Transitioned to working as a graphic designer',
-    color: '#6EE7B7', // emerald
+    color: '#967dce',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_be740c1240044a43bf020d3119c19918~mv2.png',
     caption: "Gained hands-on UX training at General Assembly's UX design bootcamp",
-    color: '#67E8F9', // cyan
+    color: '#7f65be',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_9d299ff3d61447b888545b1fef69fed0~mv2.png',
     caption: 'Created a YouTube channel for my dog',
-    color: '#93C5FD', // blue
+    color: '#6d53ad',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_eaaf8f56a29c444db14294a246afddbf~mv2.png',
     caption: 'Launched my own brand on Amazon (FBA)',
-    color: '#C4B5FD', // violet
+    color: '#5d459e',
   },
   {
     src: 'https://static.wixstatic.com/media/2f5b7e_89482a9d1be34afba8e7b1561a206f84~mv2.png',
     caption: 'Moved back to Seattle for the MS HCDE program at UW to develop into a product designer',
-    color: '#F0ABFC', // fuchsia
+    color: '#4e3890',
   },
 ]
 
@@ -55,6 +55,9 @@ export default function AboutSection() {
 
       {/* Mobile: stacked layout */}
       <div className="flex flex-col gap-10 md:hidden">
+        <FadeIn>
+          <h1 className="text-5xl font-semibold tracking-tight">Meet Grace Huh</h1>
+        </FadeIn>
         <FadeIn>
           <div className="relative w-full aspect-square overflow-hidden rounded-[32px]">
             <Image
@@ -93,53 +96,67 @@ export default function AboutSection() {
         </FadeIn>
       </div>
 
-      {/* Desktop: four-quadrant layout */}
-      <div className="hidden md:grid grid-cols-2 grid-rows-2 gap-0 min-h-[80vh]">
-        {/* Top Left — photo */}
-        <FadeIn className="h-full overflow-hidden">
-          <div className="relative w-full h-full rounded-[32px] overflow-hidden">
-            <Image
-              src="/grace-photo.jpg"
-              alt="Grace Huh"
-              fill
-              className="object-cover object-[55%_30%]"
-              sizes="50vw"
-            />
-          </div>
-        </FadeIn>
+      {/* Desktop: two-column layout */}
+      <div className="hidden md:grid grid-cols-2 gap-0 items-start">
+        {/* Left — photos */}
+        <div className="flex flex-col gap-10 pr-[40px]">
+          <FadeIn className="overflow-hidden">
+            <div className="relative w-full h-[500px] rounded-[32px] overflow-hidden">
+              <Image
+                src="/grace-photo.jpg"
+                alt="Grace Huh"
+                fill
+                className="object-cover object-[55%_30%]"
+                sizes="50vw"
+              />
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1} className="overflow-hidden">
+            <div className="relative w-full h-[500px] rounded-[32px] overflow-hidden">
+              <Image
+                src="/grace-photo-2.jpg"
+                alt="Grace Huh at Blue Origin"
+                fill
+                className="object-cover object-[50%_65%]"
+                sizes="50vw"
+              />
+            </div>
+          </FadeIn>
+        </div>
 
-        {/* Top Right — empty */}
-        <div />
-
-        {/* Bottom Left — empty */}
-        <div />
-
-        {/* Bottom Right — bio */}
-        <FadeIn delay={0.15} className="pl-4 pr-2 py-12 flex flex-col justify-center">
-          <p className="text-base leading-8 text-gray-600 mb-6">
-            My background is in industrial design, where I fell in love with sketching iterations
-            to find the perfect ergonomic curve and watching users interact with product prototypes
-            I created. I find it interesting how we used to call industrial designers &ldquo;product
-            designers&rdquo;, and I quickly realized that the core principles of building physical
-            and digital products are identical: it is all about understanding user needs and solving
-            problems.
-          </p>
-          <p className="text-base leading-7 text-gray-600 mb-6">
-            Currently completing my MS in HCDE at the University of Washington, my process
-            is heavily driven by rapid prototyping. I design elegant, customer focused products
-            turning complex research into clean, minimalist interfaces. I love building the logic
-            and interactions that make digital experiences feel truly intuitive.
-          </p>
-          <p className="text-base leading-8 text-gray-600 mb-6">
-            I thrive on collaboration. I love partnering with researchers, engineers, and PMs,
-            and I strive to make the people around me better. I am here to create impactful
-            change and help build meaningful digital experiences.
-          </p>
-          <p className="text-base leading-8 text-gray-600">
-            When I&apos;m not designing, you&apos;ll likely find me hiking a new trail, hunting
-            for the next great boba spot, or experimenting in the kitchen trying out a new recipe.
-          </p>
-        </FadeIn>
+        {/* Right — heading + bio stacked */}
+        <div className="pl-4 pr-2 flex flex-col justify-start">
+          <FadeIn delay={0.1}>
+            <h1 className="text-5xl font-semibold tracking-tight leading-tight mb-10">
+              Meet<br />Grace Huh
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-base leading-8 text-gray-600 mb-6">
+              My background is in industrial design, where I fell in love with sketching iterations
+              to find the perfect ergonomic curve and watching users interact with product prototypes
+              I created. I find it interesting how we used to call industrial designers &ldquo;product
+              designers&rdquo;, and I quickly realized that the core principles of building physical
+              and digital products are identical: it is all about understanding user needs and solving
+              problems.
+            </p>
+            <p className="text-base leading-7 text-gray-600 mb-6">
+              Currently completing my MS in HCDE at the University of Washington, my process
+              is heavily driven by rapid prototyping. I design elegant, customer focused products
+              turning complex research into clean, minimalist interfaces. I love building the logic
+              and interactions that make digital experiences feel truly intuitive.
+            </p>
+            <p className="text-base leading-8 text-gray-600 mb-6">
+              I thrive on collaboration. I love partnering with researchers, engineers, and PMs,
+              and I strive to make the people around me better. I am here to create impactful
+              change and help build meaningful digital experiences.
+            </p>
+            <p className="text-base leading-8 text-gray-600">
+              When I&apos;m not designing, you&apos;ll likely find me hiking a new trail, hunting
+              for the next great boba spot, or experimenting in the kitchen trying out a new recipe.
+            </p>
+          </FadeIn>
+        </div>
       </div>
 
       {/* A Little More About Me — timeline */}
@@ -159,9 +176,7 @@ export default function AboutSection() {
           <div
             className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-3 rounded-full"
             style={{
-              background: `linear-gradient(to bottom, ${timelineEvents
-                .map((e) => e.color)
-                .join(', ')})`,
+              background: 'linear-gradient(to bottom, #e8e0f5, #4e3890)',
             }}
           />
 
