@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import FadeIn from './FadeIn'
 import Link from 'next/link'
-import MosaicPasswordGate from './MosaicPasswordGate'
 
 interface Project {
   title: string
@@ -74,7 +73,30 @@ export default function WorkSection() {
 
       {/* Project 1 — full width */}
       <FadeIn>
-        <MosaicPasswordGate />
+        <Link href={p1.href} className="group block mb-3">
+          <div className="w-full aspect-[4/3] sm:aspect-[12/7] bg-black mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative">
+            <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+              <Image
+                src="/mosaic-header.png"
+                alt="Mosaic Companion App"
+                fill
+                className="object-cover sm:object-contain sm:scale-[1.12] sm:translate-y-[20px]"
+                sizes="100vw"
+              />
+            </div>
+          </div>
+          <div className="flex items-start justify-between gap-4 sm:gap-8">
+            <div className="flex-1">
+              <h3 className="text-lg sm:text-xl font-bold tracking-tight group-hover:opacity-60 transition-opacity">
+                {p1.title}
+              </h3>
+              <p className="mt-1.5 text-sm text-gray-500 max-w-xl leading-relaxed">
+                {p1.description}
+              </p>
+            </div>
+            <span className="text-xs sm:text-sm text-gray-400 whitespace-nowrap mt-1">{p1.category}</span>
+          </div>
+        </Link>
       </FadeIn>
 
       {/* Projects 2 & 3 — stacked on mobile, side by side on desktop */}
