@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import FadeIn from './FadeIn'
 import Link from 'next/link'
+import BigProjectCard from './BigProjectCard'
 
 interface Project {
   title: string
@@ -14,10 +15,28 @@ interface Project {
   bgColor: string
   image?: string
   imageClass?: string
+  heroBg?: string
+  logo?: string
+  password?: string
+  storageKey?: string
   comingSoon?: boolean
 }
 
 const projects: Project[] = [
+  {
+    title: 'Governance Policy workflow for IBM HashiCorp Vault',
+    description: 'Shifting enterprise security rules into a seamless, intuitive experience for platform engineers.',
+    category: 'Product Design',
+    href: '/work/ibm-hashicorp',
+    aspectClass: 'aspect-[16/9]',
+    bgColor: 'bg-stone-100',
+    image: '/ibm-hero-v2.png',
+    imageClass: 'object-contain p-8 sm:p-12',
+    heroBg: 'bg-stone-50',
+    logo: '/ibm-logo.png',
+    password: '1001',
+    storageKey: 'unlock-ibm-hashicorp',
+  },
   {
     title: 'Mosaic Companion App',
     description: "End to end app development for the world's first E-ink phone case.",
@@ -25,6 +44,8 @@ const projects: Project[] = [
     href: '/work/mosaic',
     aspectClass: 'aspect-[16/9]',
     bgColor: 'bg-stone-100',
+    image: '/mosaic-header.png',
+    imageClass: 'object-cover sm:object-contain sm:scale-[1.12] sm:translate-y-[20px]',
   },
   {
     title: 'Nourishing Networks App',
@@ -50,7 +71,8 @@ const projects: Project[] = [
 ]
 
 export default function WorkSection() {
-  const [p1, p2, p3] = projects
+  const big = projects.slice(0, 2)
+  const small = projects.slice(2)
 
   return (
     <section id="work" className="pb-32 pt-12">
@@ -71,38 +93,29 @@ export default function WorkSection() {
         </div>
       </FadeIn>
 
-      {/* Project 1 — full width */}
-      <FadeIn>
-        <Link href={p1.href} className="group block mb-3">
-          <div className="w-full aspect-[4/3] sm:aspect-[12/7] bg-black mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative">
-            <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
-              <Image
-                src="/mosaic-header.png"
-                alt="Mosaic Companion App"
-                fill
-                className="object-cover sm:object-contain sm:scale-[1.12] sm:translate-y-[20px]"
-                sizes="100vw"
-              />
-            </div>
-          </div>
-          <div className="flex items-start justify-between gap-4 sm:gap-8">
-            <div className="flex-1">
-              <h3 className="text-lg sm:text-xl font-bold tracking-tight group-hover:opacity-60 transition-opacity">
-                {p1.title}
-              </h3>
-              <p className="mt-1.5 text-sm text-gray-500 max-w-xl leading-relaxed">
-                {p1.description}
-              </p>
-            </div>
-            <span className="text-xs sm:text-sm text-gray-400 whitespace-nowrap mt-1">{p1.category}</span>
-          </div>
-        </Link>
-      </FadeIn>
+      {/* Big projects — full width, stacked */}
+      {big.map((project, i) => (
+        <FadeIn key={project.title} delay={i * 0.05}>
+          <BigProjectCard
+            title={project.title}
+            description={project.description}
+            category={project.category}
+            href={project.href}
+            image={project.image}
+            imageClass={project.imageClass}
+            heroBg={project.heroBg}
+            logo={project.logo}
+            password={project.password}
+            storageKey={project.storageKey}
+            className={i > 0 ? 'mt-10 sm:mt-16' : ''}
+          />
+        </FadeIn>
+      ))}
 
-      {/* Projects 2 & 3 — stacked on mobile, side by side on desktop */}
+      {/* Remaining projects — stacked on mobile, side by side on desktop */}
       <FadeIn delay={0.1}>
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
-          {[p2, p3].map((project) => (
+          {small.map((project) => (
             <Link key={project.title} href={project.href} className="group block">
               <div className={`w-full ${project.aspectClass} ${project.bgColor} mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative`}>
                 {project.image ? (

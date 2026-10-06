@@ -8,8 +8,9 @@ export default function Header() {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
 
-  // Dark background on work/case-study pages, light everywhere else
-  const isDark = pathname.startsWith('/work/')
+  // Dark background only on case studies that actually use a dark page background
+  const darkCaseStudies = ['/work/mosaic', '/work/air-fryer']
+  const isDark = darkCaseStudies.includes(pathname)
 
   const pillClass = isDark
     ? 'bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_2px_16px_rgba(0,0,0,0.15)]'
