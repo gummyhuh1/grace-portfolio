@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
@@ -22,6 +23,9 @@ const severityColor = (level: 3 | 2 | 1) => {
 }
 
 export default function ActualAIPage() {
+  // Case study still in progress — keep this route closed until it's ready to publish.
+  notFound()
+
   return (
     <main className="pt-20 bg-white min-h-screen">
 

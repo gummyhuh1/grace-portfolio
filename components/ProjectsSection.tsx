@@ -111,7 +111,7 @@ export default function ProjectsSection() {
               </>
             )
 
-            return project.href ? (
+            return project.href && !project.comingSoon ? (
               <Link key={project.title} href={project.href} className="group block">
                 {CardInner}
               </Link>
