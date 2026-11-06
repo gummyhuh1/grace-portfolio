@@ -3,6 +3,8 @@
 import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
 import AuthVsGovernance from '@/components/AuthVsGovernance'
+import UserPersonas from '@/components/UserPersonas'
+import ImageLightbox from '@/components/ImageLightbox'
 import Link from 'next/link'
 
 const metadata = [
@@ -205,38 +207,42 @@ export default function IBMHashiCorpContent() {
             </p>
           </div>
 
-          <img
-            src="/ibm-persona.jpg"
-            alt="Core user personas: Compliance Officer (Futuristic Freya) and Platform Engineer"
-            className="w-full h-auto block mb-16"
-          />
+          <div className="mb-16">
+            <UserPersonas />
+          </div>
 
           <div className="mb-8">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
-              To deeply understand what the platform engineer needed to accomplish at every stage, I mapped out comprehensive Jobs to be Done (JTBD). This breakdown covered every major touchpoint, from navigating the starting list view and creating a control, to reviewing the confirmation page and applying updates.
+              To deeply understand what the platform engineer needed to accomplish at every stage, I mapped out comprehensive Jobs to be Done (JTBD). This breakdown covered every major touchpoint, from navigating the starting list view and creating a control, to reviewing the confirmation page and applying updates, giving me a grounded understanding of user intent at each step rather than assumptions about what they needed.
             </p>
           </div>
 
-          <img
+          <ImageLightbox
             src="/ibm-jtbd-v3.jpg"
             alt="Jobs to be Done breakdown across the starting list view, creating a control, the confirmation page, and applying updates"
-            className="w-full h-auto block mb-16"
-          />
-
-          <img
-            src="/ibm-journey-map.jpg"
-            alt="CRUDL user journey map spanning the Create, List, Apply, Update, and Delete phases"
             className="w-full h-auto block mb-16"
           />
 
           <h3 className="text-xl font-semibold text-[#161616] mb-4">Architecting the Journey: The &quot;Apply&quot; Pivot</h3>
           <div className="mb-10">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
-              I visualized the full CRUDL user journey (Create, List, Apply, Update, Delete) to align our design with the backend architecture. Walking through this flow with PMs and engineers led to a critical workflow pivot:
+              I mapped the high-level CRUDL journey (Create, List, Apply, Update, Delete) platform engineers move through when managing governance controls, establishing the overall shape of the experience before designing any individual screen.
             </p>
           </div>
 
-          <img
+          <ImageLightbox
+            src="/ibm-journey-map.jpg"
+            alt="CRUDL user journey map spanning the Create, List, Apply, Update, and Delete phases"
+            className="w-full h-auto block mb-16"
+          />
+
+          <div className="mb-10">
+            <p className="text-[17.3px] leading-[1.5] text-[#525252]">
+              From there, I translated each phase of the journey into a detailed user flow, mapping the specific steps, decision points, and underlying architecture required to align the design with the backend. Walking through this flow with PMs and engineers led to a critical workflow pivot:
+            </p>
+          </div>
+
+          <ImageLightbox
             src="/ibm-resource-flow.png"
             alt="Resource management flow diagram showing the control creation flow and the apply-to-clusters branching paths"
             className="w-full h-auto block mb-8"
