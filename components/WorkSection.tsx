@@ -118,7 +118,7 @@ export default function WorkSection() {
           {small.map((project) => {
             const cardContent = (
               <>
-                <div className={`w-full ${project.aspectClass} ${project.bgColor} mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative`}>
+                <div className={`w-full ${project.aspectClass} ${project.bgColor} mb-6 overflow-hidden rounded-[20px] sm:rounded-[48px] relative`}>
                   {project.image ? (
                     <>
                       <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
@@ -131,7 +131,7 @@ export default function WorkSection() {
                         />
                       </div>
                       {project.comingSoon && (
-                        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-[40px] sm:rounded-[48px]">
+                        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-[20px] sm:rounded-[48px]">
                           <span className="text-white text-sm font-semibold tracking-[0.2em] uppercase">
                             Coming Soon
                           </span>

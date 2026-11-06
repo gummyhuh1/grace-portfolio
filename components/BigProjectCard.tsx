@@ -89,7 +89,7 @@ export default function BigProjectCard({
   const imageBlock = (
     <div
       ref={containerRef}
-      className={`w-full aspect-[4/3] sm:aspect-[12/7] ${heroBg ?? 'bg-black'} mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative ${!unlocked ? 'cursor-pointer' : ''}`}
+      className={`w-full aspect-[4/3] sm:aspect-[12/7] ${heroBg ?? 'bg-black'} mb-6 overflow-hidden rounded-[20px] sm:rounded-[48px] relative ${!unlocked ? 'cursor-pointer' : ''}`}
       onClick={!unlocked ? handleImageClick : undefined}
     >
       {image ? (
@@ -115,7 +115,7 @@ export default function BigProjectCard({
       {/* Dim + password prompt, anchored to the image */}
       {!unlocked && open && (
         <div
-          className="absolute inset-0 flex items-center justify-center z-20 rounded-[40px] sm:rounded-[48px] bg-black/50"
+          className="absolute inset-0 flex items-center justify-center z-20 rounded-[20px] sm:rounded-[48px] bg-black/50"
           onClick={(e) => { e.stopPropagation(); handleClose() }}
         >
           <div
