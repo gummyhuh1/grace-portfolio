@@ -1,9 +1,4 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
-import IntroSequence from '@/components/IntroSequence'
 import WorkSection from '@/components/WorkSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import Footer from '@/components/Footer'
@@ -11,30 +6,9 @@ import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
 
 export default function Home() {
-  // 'pending' = waiting for client to check sessionStorage
-  // 'playing' = intro is running, hide main content
-  // 'done'    = intro complete or already seen, show main content
-  const [introState, setIntroState] = useState<'pending' | 'playing' | 'done'>('pending')
-
-  useEffect(() => {
-    const seen = !!sessionStorage.getItem('introSeen')
-    setIntroState(seen ? 'done' : 'playing')
-  }, [])
-
-  function handleIntroComplete() {
-    sessionStorage.setItem('introSeen', '1')
-    setIntroState('done')
-  }
-
   return (
     <>
-      {introState === 'playing' && <IntroSequence onComplete={handleIntroComplete} />}
-
-      <motion.main
-        initial={{ opacity: 1 }}
-        animate={{ opacity: introState === 'playing' ? 0 : 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      >
+      <main>
         <Container>
           {/* Hero — tagline sits just below the header; h-screen hides everything below the fold */}
           <section className="h-screen flex flex-col justify-center pt-20">
@@ -65,7 +39,7 @@ export default function Home() {
         </Container>
 
         <Footer />
-      </motion.main>
+      </main>
     </>
   )
 }

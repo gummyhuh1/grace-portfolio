@@ -14,16 +14,20 @@ const metadata = [
 
 const evaluationCriteria = [
   {
-    label: 'Policy Languages & Syntax',
-    description: 'How declarative vs. imperative models impacted the authoring learning curve.',
+    label: 'Proactive Enforcement Architecture',
+    description: 'Evaluated whether systems operate as broad access-level perimeters or enforce highly granular, action-level decisions.',
   },
   {
-    label: 'Core Capabilities',
-    description: 'How systems handled rule composition, policy enforcement points, and scoping.',
+    label: 'Testing and Dry-Run Capabilities',
+    description: 'Assessed how platforms allow users to safely verify policies before deployment, ranging from formal mathematical verification to shadow modes running against real traffic.',
   },
   {
-    label: 'Strengths & Friction Points',
-    description: 'Where users faced cognitive overload, syntax confusion, or operational blind spots.',
+    label: 'Audit Trail Philosophies',
+    description: 'Compared continuous full-session recordings (best for human users) against discrete, per-decision logging (best for automated agents).',
+  },
+  {
+    label: 'Authoring Experience and UI',
+    description: 'Analyzed the usability for compliance officers, focusing on clean compliance interfaces, visual relationship mapping, and natural-language authoring tools.',
   },
 ]
 
@@ -115,7 +119,7 @@ export default function IBMHashiCorpContent() {
           <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Background</h2>
           <div className="mb-12">
             <p className="text-[17.3px] leading-[1.5] text-[#525252] mb-5">
-              As enterprise security models evolve to handle agile hybrid clouds, agentic AI, and post-quantum cryptography, traditional access controls are no longer enough. Authorization dictates who can perform an action, but it can&apos;t prevent a fully privileged user from making a vulnerable choice—like creating a deprecated 1024-bit encryption key. That requires Governance Control: proactive, organization-wide rules that dictate what is allowed to exist at all.
+              As enterprise security models evolve to handle agile hybrid clouds, agentic AI, and post-quantum cryptography, traditional access controls are no longer enough. Authorization dictates who can perform an action, but it can&apos;t prevent a fully privileged user from making a vulnerable choice, like creating a deprecated 1024-bit encryption key. That requires Governance Control: proactive, organization-wide rules that dictate what is allowed to exist at all.
             </p>
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
               Historically, governance in HashiCorp Vault was treated as a secondary enterprise overlay. For this 0-to-1 product initiative, our goal was to fundamentally shift that paradigm, designing an experience where proactive governance is a native, first-class citizen.
@@ -135,7 +139,7 @@ export default function IBMHashiCorpContent() {
               Building a zero-to-one product means navigating a blank slate. Tasked with designing a brand-new governance policy model to control system algorithms, I initially faced a steep technical learning curve. I didn&apos;t fully understand how the underlying rules were supposed to work, which meant dealing with heavy ambiguity.
             </p>
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
-              To get up to speed, I embedded myself with the technical teams—interviewing Engineers, PMs, and designers, while dissecting PRDs and RFCs to translate complex architecture into clear design requirements.
+              To get up to speed, I embedded myself with the technical teams, interviewing Engineers, PMs, and designers, while dissecting PRDs and RFCs to translate complex architecture into clear design requirements.
             </p>
           </div>
 
@@ -164,7 +168,7 @@ export default function IBMHashiCorpContent() {
             />
 
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
-              By analyzing the strengths and trade-offs of each system—from declarative languages like Open Policy Agent (Rego) and AWS Cedar to proprietary enterprise engines—I mapped out current industry standards and uncovered critical usability gaps.
+              By analyzing the strengths and trade-offs of each system, from declarative languages like Open Policy Agent (Rego) and AWS Cedar to proprietary enterprise engines, I mapped out current industry standards and uncovered critical usability gaps.
             </p>
 
             <div className="mt-8">
@@ -177,11 +181,13 @@ export default function IBMHashiCorpContent() {
           </div>
 
           <p className="text-xs font-semibold uppercase tracking-[0.32px] text-[#0f62fe] mb-4">What I evaluated across each tool</p>
-          <div className="bg-white border border-[#e0e0e0] divide-y divide-[#e0e0e0]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {evaluationCriteria.map(({ label, description }) => (
-              <div key={label} className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-2 md:gap-8 px-8 py-6">
-                <p className="text-base font-semibold text-[#161616]">{label}</p>
-                <p className="text-[17.3px] leading-[1.5] text-[#525252]">{description}</p>
+              <div key={label} className="bg-[#f4f4f4] border-t-4 border-[#0f62fe] px-8 py-10">
+                <p className="text-xs font-semibold uppercase tracking-[0.32px] text-[#0f62fe] mb-4">
+                  {label}
+                </p>
+                <p className="text-[17.3px] leading-[1.5] text-[#161616]">{description}</p>
               </div>
             ))}
           </div>
@@ -193,34 +199,34 @@ export default function IBMHashiCorpContent() {
         <div id="users" className="mb-[200px]">
           <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Defining the Users: Personas & Intent</h2>
 
-          <img
-            src="/ibm-persona.jpg"
-            alt="Core user personas: Compliance Officer (Futuristic Freya) and Platform Engineer"
-            className="w-full h-auto block mb-8"
-          />
-
-          <div className="mb-16">
+          <div className="mb-8">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
               To translate our competitive insights into a tangible product, I first anchored the design around our two core users.
             </p>
           </div>
 
           <img
-            src="/ibm-jtbd.jpg"
-            alt="Jobs to be Done breakdown across the starting list view, creating a control, the confirmation page, and applying updates"
-            className="w-full h-auto block mb-8"
+            src="/ibm-persona.jpg"
+            alt="Core user personas: Compliance Officer (Futuristic Freya) and Platform Engineer"
+            className="w-full h-auto block mb-16"
           />
 
-          <div className="mb-16">
+          <div className="mb-8">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
               To deeply understand what the platform engineer needed to accomplish at every stage, I mapped out comprehensive Jobs to be Done (JTBD). This breakdown covered every major touchpoint, from navigating the starting list view and creating a control, to reviewing the confirmation page and applying updates.
             </p>
           </div>
 
           <img
+            src="/ibm-jtbd-v3.jpg"
+            alt="Jobs to be Done breakdown across the starting list view, creating a control, the confirmation page, and applying updates"
+            className="w-full h-auto block mb-16"
+          />
+
+          <img
             src="/ibm-journey-map.jpg"
             alt="CRUDL user journey map spanning the Create, List, Apply, Update, and Delete phases"
-            className="w-full h-auto block mb-8"
+            className="w-full h-auto block mb-16"
           />
 
           <h3 className="text-xl font-semibold text-[#161616] mb-4">Architecting the Journey: The &quot;Apply&quot; Pivot</h3>
@@ -243,6 +249,12 @@ export default function IBMHashiCorpContent() {
             </p>
           </div>
 
+          <img
+            src="/ibm-flow-diagram.jpg"
+            alt="Before and after flow diagrams: originally Create Control led directly into Apply to Clusters then Control List; the revised flow makes Apply to Clusters an optional branch between Create Control and Control List"
+            className="w-full max-w-[500px] mx-auto h-auto block mb-6"
+          />
+
           <div className="bg-[#f4f4f4] border-l-4 border-[#0f62fe] px-8 py-8">
             <p className="text-xs font-semibold uppercase tracking-[0.32px] text-[#0f62fe] mb-3">The Solution</p>
             <p className="text-[17.3px] leading-[1.5] text-[#161616]">
@@ -258,7 +270,7 @@ export default function IBMHashiCorpContent() {
           <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Low-Fi Wireframes</h2>
           <div className="mb-10">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
-              With the user flow locked in, I quickly translated the architecture into low-fidelity wireframes. The goal was speed—putting foundational UX patterns in front of Engineering, Product, and Design (EPD) to get immediate reactions. This approach allowed us to rapidly validate structural design decisions and iterate collaboratively on high-level concepts before committing to high-fidelity execution.
+              With the user flow locked in, I quickly translated the architecture into low-fidelity wireframes. The goal was speed, putting foundational UX patterns in front of Engineering, Product, and Design (EPD) to get immediate reactions. This approach allowed us to rapidly validate structural design decisions and iterate collaboratively on high-level concepts before committing to high-fidelity execution.
             </p>
           </div>
 
@@ -283,7 +295,7 @@ export default function IBMHashiCorpContent() {
           <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Prototype</h2>
           <div className="mb-10">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
-              To accelerate the transition to high-fidelity, I used Figma Make to &quot;vibe code&quot; our validated low-fidelity wireframes into polished prototypes. I took these initial high-fidelity designs through multiple internal iteration cycles—collaborating closely with engineering to refine the complex technical workflows and interactions, ensuring we had a robust, realistic model ready for our upcoming usability testing sessions.
+              To accelerate the transition to high-fidelity, I used Figma Make to &quot;vibe code&quot; our validated low-fidelity wireframes into polished prototypes. I took these initial high-fidelity designs through multiple internal iteration cycles, collaborating closely with engineering to refine the complex technical workflows and interactions, ensuring we had a robust, realistic model ready for our upcoming usability testing sessions.
             </p>
           </div>
 
@@ -306,7 +318,7 @@ export default function IBMHashiCorpContent() {
           <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Usability Testing</h2>
           <div className="mb-10">
             <p className="text-[17.3px] leading-[1.5] text-[#525252] mb-5">
-              To validate the high-fidelity designs, I conducted moderated, task-based usability testing with six internal participants—five engineers and one project manager. These 45–60 minute sessions were crucial for uncovering how technical users navigated the complexity of the new governance workflows.
+              To validate the high-fidelity designs, I conducted moderated, task-based usability testing with six internal participants, five engineers and one project manager. These 45–60 minute sessions were crucial for uncovering how technical users navigated the complexity of the new governance workflows.
             </p>
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
               Based on the feedback, I prioritized three major workflow iterations:
@@ -350,7 +362,7 @@ export default function IBMHashiCorpContent() {
           </div>
 
           <div className="mb-16">
-            <h3 className="text-xl font-semibold text-[#161616] mb-6">2. Create a Control</h3>
+            <h3 className="text-xl font-semibold text-[#161616] mb-6">2. Creating a Policy</h3>
             <video
               src="/ibm-create-control-loop.mp4"
               autoPlay
@@ -363,7 +375,7 @@ export default function IBMHashiCorpContent() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-[#161616] mb-6">3. Apply to Clusters</h3>
+            <h3 className="text-xl font-semibold text-[#161616] mb-6">3. Applying the Policy to Clusters</h3>
             <video
               src="/ibm-apply-clusters-loop.mp4"
               autoPlay

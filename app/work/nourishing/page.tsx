@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import Footer from '@/components/Footer'
 import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
@@ -9,6 +10,9 @@ export const metadata = {
 }
 
 export default function NourishingPage() {
+  // Case study still in progress — keep this route closed until it's ready to publish.
+  notFound()
+
   return (
     <main className="pt-32">
       <Container className="mb-8">

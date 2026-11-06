@@ -115,49 +115,61 @@ export default function WorkSection() {
       {/* Remaining projects — stacked on mobile, side by side on desktop */}
       <FadeIn delay={0.1}>
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-12">
-          {small.map((project) => (
-            <Link key={project.title} href={project.href} className="group block">
-              <div className={`w-full ${project.aspectClass} ${project.bgColor} mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative`}>
-                {project.image ? (
-                  <>
-                    <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className={project.imageClass ?? 'object-cover'}
-                        sizes="(max-width: 640px) 100vw, 50vw"
-                      />
-                    </div>
-                    {project.comingSoon && (
-                      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-[40px] sm:rounded-[48px]">
-                        <span className="text-white text-sm font-semibold tracking-[0.2em] uppercase">
-                          Coming Soon
-                        </span>
+          {small.map((project) => {
+            const cardContent = (
+              <>
+                <div className={`w-full ${project.aspectClass} ${project.bgColor} mb-6 overflow-hidden rounded-[40px] sm:rounded-[48px] relative`}>
+                  {project.image ? (
+                    <>
+                      <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className={project.imageClass ?? 'object-cover'}
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                        />
                       </div>
-                    )}
-                  </>
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-stone-300 text-sm tracking-widest uppercase">
-                    Image
-                  </div>
-                )}
-              </div>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold tracking-tight group-hover:opacity-60 transition-opacity">
-                    {project.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-gray-500 leading-relaxed">
-                    {project.description}
-                  </p>
+                      {project.comingSoon && (
+                        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-[40px] sm:rounded-[48px]">
+                          <span className="text-white text-sm font-semibold tracking-[0.2em] uppercase">
+                            Coming Soon
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-stone-300 text-sm tracking-widest uppercase">
+                      Image
+                    </div>
+                  )}
                 </div>
-                <span className="text-xs text-gray-400 whitespace-nowrap mt-1">
-                  {project.category}
-                </span>
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold tracking-tight group-hover:opacity-60 transition-opacity">
+                      {project.title}
+                    </h3>
+                    <p className="mt-1.5 text-sm text-gray-500 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  <span className="text-xs text-gray-400 whitespace-nowrap mt-1">
+                    {project.category}
+                  </span>
+                </div>
+              </>
+            )
+
+            return project.comingSoon ? (
+              <div key={project.title} className="group block">
+                {cardContent}
               </div>
-            </Link>
-          ))}
+            ) : (
+              <Link key={project.title} href={project.href} className="group block">
+                {cardContent}
+              </Link>
+            )
+          })}
         </div>
       </FadeIn>
     </section>
