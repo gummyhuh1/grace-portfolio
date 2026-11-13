@@ -6,9 +6,10 @@ interface Props {
   src: string
   alt: string
   className?: string
+  style?: React.CSSProperties
 }
 
-export default function ImageLightbox({ src, alt, className }: Props) {
+export default function ImageLightbox({ src, alt, className, style }: Props) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function ImageLightbox({ src, alt, className }: Props) {
         src={src}
         alt={alt}
         className={`${className} cursor-zoom-in`}
+        style={style}
         onClick={() => setOpen(true)}
       />
 

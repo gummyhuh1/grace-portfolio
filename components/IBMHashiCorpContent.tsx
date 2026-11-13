@@ -4,6 +4,7 @@ import FadeIn from '@/components/FadeIn'
 import Container from '@/components/Container'
 import AuthVsGovernance from '@/components/AuthVsGovernance'
 import UserPersonas from '@/components/UserPersonas'
+import UsabilityStudyOverview from '@/components/UsabilityStudyOverview'
 import ImageLightbox from '@/components/ImageLightbox'
 import Link from 'next/link'
 
@@ -54,18 +55,13 @@ const nextSteps = [
 
 const usabilityFindings = [
   {
-    heading: 'Clarifying the State Model',
-    body: 'Upon reaching the confirmation page, users were unsure if their governance control was actually saved because the optional "apply to clusters" action appeared as a pending third step in the progress bar.',
-    quote: 'If I hit cancel... I’m not actually sure that my control is saved.',
-    attribution: 'One engineer',
-    resolution: 'I resolved this by removing the final step from the progress bar, adding a clear success toast message, and introducing a distinct "What’s next?" section to separate the creation state from the application state.',
-  },
-  {
     heading: 'Contextualizing Complex Actions',
     body: 'Four out of six participants were confused by the "Override" feature, specifically questioning whether it replaced or added to an algorithm set. Furthermore, three participants struggled with overrides appearing in a disconnected section on the summary page rather than inline with their corresponding key types.',
     quote: null,
     attribution: null,
     resolution: 'In the revised prototype, I added explicit helper text and relocated the overrides to sit directly next to their associated key types for immediate context.',
+    image: '/ibm-overrides.png',
+    imageAlt: 'Overrides panel with helper text explaining that overrides replace the default algorithms for a specific scope, with Scope ID and Allowed Algorithms fields',
   },
   {
     heading: 'Designing for Enterprise Scale',
@@ -73,6 +69,20 @@ const usabilityFindings = [
     quote: 'Without a ‘select all,’ if there are hundreds of production environments, I’m going to hit every button the first time and I will make a mistake.',
     attribution: 'One participant',
     resolution: 'I iterated on the dropdown component to include a bulk "select all" function and enabled filtering by product name to accommodate large-scale deployments.',
+    beforeAfter: {
+      before: { src: '/ibm-select-all-before.png', alt: 'Before: algorithm selection dropdown with a flat checkbox list and no select-all or grouping' },
+      after: { src: '/ibm-select-all-after.png', alt: 'After: algorithm selection dropdown with a Select All option and algorithms grouped by family' },
+    },
+  },
+  {
+    heading: 'Designing for Engineers',
+    body: 'One participant, who preferred working in a CLI over a graphical interface, explained that seeing the workflow represented as code would help them understand and trust the UI more. This wasn’t an isolated preference — across sessions, our most experienced engineers consistently gravitated toward CLI-based tools over UI-driven ones.',
+    quote: 'A code view would be nice, seeing it as code would help me understand the UI better.',
+    attribution: 'One participant',
+    resolution: 'I added a Code View toggle that lets users switch between the graphical UI and an equivalent CLI representation at any point in the workflow, giving CLI-first engineers a way to work through the entire governance flow in the format they’re most comfortable with.',
+    image: '/ibm-code-view.png',
+    imageAlt: 'Create a control screen with a Form/Code toggle, showing the Code view rendering the control as a JSON file',
+    imageMaxW: 864,
   },
 ]
 
@@ -323,16 +333,23 @@ export default function IBMHashiCorpContent() {
         <div id="usability-testing" className="mb-[200px]">
           <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Usability Testing</h2>
           <div className="mb-10">
-            <p className="text-[17.3px] leading-[1.5] text-[#525252] mb-5">
-              To validate the high-fidelity designs, I conducted moderated, task-based usability testing with six internal participants, five engineers and one project manager. These 45–60 minute sessions were crucial for uncovering how technical users navigated the complexity of the new governance workflows.
+            <p className="text-[17.3px] leading-[1.5] text-[#525252]">
+              To validate the high-fidelity designs, I ran a moderated, task-based usability study to see how technical users actually navigated the complexity of the new governance workflows.
             </p>
+          </div>
+
+          <div className="mb-10">
+            <UsabilityStudyOverview />
+          </div>
+
+          <div className="mb-10">
             <p className="text-[17.3px] leading-[1.5] text-[#525252]">
               Based on the feedback, I prioritized three major workflow iterations:
             </p>
           </div>
 
           <div className="space-y-12">
-            {usabilityFindings.map(({ heading, body, quote, attribution, resolution }) => (
+            {usabilityFindings.map(({ heading, body, quote, attribution, resolution, image, imageAlt, imageMaxW, beforeAfter }) => (
               <div key={heading}>
                 <h3 className="text-xl font-semibold text-[#161616] mb-4">{heading}</h3>
                 <p className="text-[17.3px] leading-[1.5] text-[#525252]">{body}</p>
@@ -347,6 +364,30 @@ export default function IBMHashiCorpContent() {
                 )}
 
                 <p className={`text-[17.3px] leading-[1.5] text-[#525252] ${quote ? '' : 'mt-5'}`}>{resolution}</p>
+
+                {image && (
+                  <ImageLightbox
+                    src={image}
+                    alt={imageAlt ?? ''}
+                    className="w-full h-auto block border border-[#e0e0e0] mt-8"
+                    style={{ maxWidth: `${imageMaxW ?? 720}px` }}
+                  />
+                )}
+
+                {beforeAfter && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                    {([['Before', beforeAfter.before], ['After', beforeAfter.after]] as const).map(([label, img]) => (
+                      <div key={label}>
+                        <p className="text-xs font-semibold uppercase tracking-[0.32px] text-[#0f62fe] mb-3">{label}</p>
+                        <ImageLightbox
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full h-auto block border border-[#e0e0e0]"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
