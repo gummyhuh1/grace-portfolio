@@ -12,7 +12,7 @@ const metadata = [
   { label: 'Role', value: ['Product Design Intern'] },
   { label: 'Collaborators', value: ['1 Senior Product Designer', '1 Cryptography Engineer', '1 Project Manager'] },
   { label: 'Company', value: ['IBM'] },
-  { label: 'Duration', value: ['3 Months'] },
+  { label: 'Duration', value: ['3 Months (Jun-Sept 2026)'] },
 ]
 
 const evaluationCriteria = [
@@ -37,7 +37,7 @@ const evaluationCriteria = [
 const nextSteps = [
   {
     label: 'Public Debut',
-    description: 'The initial concept and UI workflows will be showcased at HashiConf at IBM TechExchange.',
+    description: 'The initial concept and UI workflows have been showcased at HashiConf at IBM TechExchange 2026.',
   },
   {
     label: 'Scope Expansion',
@@ -123,6 +123,15 @@ export default function IBMHashiCorpContent() {
             </div>
           ))}
         </div>
+      </FadeIn>
+
+      {/* Typographic statement */}
+      <FadeIn>
+        <p className="text-4xl md:text-5xl lg:text-6xl font-thin leading-[1.25] tracking-tight text-[#161616] mb-[200px]">
+          A <span className="font-semibold text-[#0f62fe]">governance system</span> for Vault built around one question: not{' '}
+          <span className="font-semibold text-[#0f62fe]">who</span> can do this, but should this be{' '}
+          <span className="font-semibold text-[#0f62fe]">allowed to exist</span> at all.
+        </p>
       </FadeIn>
 
       {/* Background */}
@@ -439,7 +448,13 @@ export default function IBMHashiCorpContent() {
       {/* Next Steps */}
       <FadeIn>
         <div id="next-steps" className="mb-16">
-          <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-10 text-[#161616]">Next Steps</h2>
+          <h2 className="text-[28px] leading-[1.29] font-semibold tracking-[-0.01em] mb-6 text-[#161616]">Next Steps</h2>
+
+          <div className="mb-10">
+            <p className="text-[17.3px] leading-[1.5] text-[#525252]">
+              This governance policy workflow is one piece of a larger product initiative, Vault Arc, which launched in public preview at HashiConf during IBM TechExchange 2026. My internship ended as the project moved from design into engineering handoff, so I wasn&apos;t part of the shipping process or the customer feedback that followed, with Vault Arc still in public preview.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {nextSteps.map(({ label, description }) => (
